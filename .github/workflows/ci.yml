@@ -25,6 +25,8 @@ jobs:
         env:
           CLEANYOURTV_STRICT: ${{ github.event_name == 'push' && '1' || '' }}
         run: python3 -m unittest discover -s tests -v
+      - name: Links in the Markdown files
+        run: python3 -I tools/check_links.py
 
   launcher:
     name: Launcher build and unit tests
